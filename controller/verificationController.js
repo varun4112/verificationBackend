@@ -13,7 +13,6 @@ const client = new twilio(
 //GENERATING OTP FOR EMAIL VERIFICATION USING NODEMAILER
 exports.genOtp = async (req, res) => {
   const { email } = req.body;
-
   // Validate email
   if (!email) {
     return res.status(400).json({ message: "Email is required" });
@@ -68,6 +67,7 @@ exports.genOtp = async (req, res) => {
 // CONTROLLER TO VERIFY OTP GENERATED
 exports.verOtp = (req, res) => {
   const { otp } = req.body;
+
   // Check if OTP is provided
   if (!otp) {
     return res.status(400).json({ message: "OTP is required" });
